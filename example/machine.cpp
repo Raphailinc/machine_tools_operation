@@ -4,6 +4,8 @@
 #include "changemachine.h"
 #include "createmachine.h"
 #include "idmachine.h"
+#include <QGuiApplication>
+#include <QScreen>
 
 Machine::Machine(QWidget *parent) :
     QDialog(parent),
@@ -11,6 +13,12 @@ Machine::Machine(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowTitle("Станки");
+
+    QScreen *primaryScreen = QGuiApplication::primaryScreen();
+    QRect screenGeometry = primaryScreen->geometry();
+    int x = (screenGeometry.width() - this->width()) / 2;
+    int y = (screenGeometry.height() - this->height()) / 2;
+    this->move(x, y);
 }
 
 Machine::~Machine()
@@ -20,8 +28,8 @@ Machine::~Machine()
 
 void Machine::on_pushButton_clicked()
 {
-    this->close();      // Закрываем окно
-    emit firstWindow(); // И вызываем сигнал на открытие главного окна
+    this->close();
+    emit firstWindow();
 }
 
 void Machine::on_pushButton_2_clicked()

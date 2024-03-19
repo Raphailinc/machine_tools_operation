@@ -1,20 +1,24 @@
 #include "menu.h"
 #include "ui_menu.h"
+#include <QGuiApplication>
+#include <QScreen>
 
 Menu::Menu(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Menu)
 {
     ui->setupUi(this);
-    // Инициализируем второе окно
     sWindow = new Request();
-    // подключаем к слоту запуска главного окна по кнопке во втором окне
     connect(sWindow, &Request::firstWindow, this, &Menu::show);
 
-    // Инициализируем третье окно
     thirdWindow = new Machine();
-    // подключаем к слоту запуска главного окна по кнопке в третьем окне
     connect(thirdWindow, &Machine::firstWindow, this, &Menu::show);
+
+    QScreen *primaryScreen = QGuiApplication::primaryScreen();
+    QRect screenGeometry = primaryScreen->geometry();
+    int x = (screenGeometry.width() - this->width()) / 2;
+    int y = (screenGeometry.height() - this->height()) / 2;
+    this->move(x, y);
 }
 
 Menu::~Menu()
@@ -24,14 +28,12 @@ Menu::~Menu()
 
 void Menu::on_pushButton_clicked()
 {
-    sWindow->show();  // Показываем второе окно
-    this->close();    // Закрываем основное окно
+    sWindow->show();
+    this->close();
 }
-
 
 void Menu::on_pushButton_2_clicked()
 {
-    thirdWindow->show();  // Показываем третье окно
-    this->close();    // Закрываем основное окно
+    thirdWindow->show();
+    this->close();
 }
-

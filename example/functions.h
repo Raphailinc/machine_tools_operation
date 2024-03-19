@@ -10,7 +10,11 @@
 #include <cstring>
 #include <clocale>
 #include <stdio.h>
+
+#ifdef _WIN32
 #include <windows.h>
+#endif
+
 #include <vector>
 #include "machine_state.h"
 #include "machine_detail.h"

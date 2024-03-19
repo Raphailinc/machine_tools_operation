@@ -6,7 +6,6 @@
 #include "_request.h"
 #include "machine_list.h"
 
-/*requests.txt - Название файла, где хранится данные о запросах*/
 class Request_list : public QObject, public _Request
 {
     Q_OBJECT
@@ -20,11 +19,8 @@ public:
     ~Request_list();
 
     void print(QStandardItemModel *model) const;
-    /*
-        Формат хранения данных: текстовый
-    */
-    void save() const;  // Сохраняет в файл requests.txt данные о запросах
-    void load();		// Загружает из файла requests.txt данные о запросах
+    void save() const;
+    void load();
 };
 
 #endif // REQUEST_LIST_H

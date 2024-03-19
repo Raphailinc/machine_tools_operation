@@ -1,5 +1,8 @@
 #include "request_list.h"
 #include "allrequests.h"
+#include <iostream>
+#include <fstream>
+#include <string>
 
 Request_list::Request_list()
 {
@@ -27,11 +30,18 @@ void Request_list::print(QStandardItemModel *model) const
     }
 }
 
+const std::string file_path = "requests.txt";
+
 void Request_list::save() const
 {
-    std::ofstream out;
-    out.open("C:\\QT\\projects\\example\\requests.txt");
+    std::ofstream out(file_path);
+
+    if (!out.is_open()) {
+        std::cerr << "Ошибка открытия файла для записи!" << std::endl;
+        return;
+    }
     out << "count=" << this->request_list.size() << "\n\n";
+    std::cout << "Загружено запросов из файла: " << this->request_list.size() << std::endl;
 
     std::vector<_Request>::const_iterator iter = this->request_list.begin();
     while(iter != this->request_list.end())
@@ -61,7 +71,12 @@ void Request_list::save() const
 
 void Request_list::load()
 {
-    std::ifstream in("C:\\QT\\projects\\example\\requests.txt");
+    std::ifstream in(file_path);
+
+    if (!in.is_open()) {
+        std::cerr << "Ошибка открытия файла для чтения!" << std::endl;
+        return;
+    }
 
     std::string count = "";
     std::getline(in, count, '=');
@@ -112,9 +127,8 @@ void Request_list::load()
         char* ptr = strtok((char*)tmp.c_str(), "|");
         while (ptr != NULL)
         {
-            char ptr_data[256];
-            strcpy(ptr_data, ptr);
-            char* it = ptr_data;
+            std::string ptr_data(ptr);
+            char* it = &ptr_data[0];
             while (*it != ',')
             {
                 it++;

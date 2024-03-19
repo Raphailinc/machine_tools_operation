@@ -1,5 +1,8 @@
 #include "machine_list.h"
 #include "allmachines.h"
+#include <iostream>
+#include <fstream>
+#include <string>
 
 Machine_list::Machine_list()
 {
@@ -21,9 +24,16 @@ void Machine_list::print(QStandardItemModel *model) const
     }
 }
 
+const std::string file_path = "machines.bin";
+
 void Machine_list::save() const
 {
-    std::ofstream out("C:\\QT\\projects\\example\\machines.bin", std::ios::binary | std::ios::out);
+    std::ofstream out(file_path, std::ios::binary | std::ios::out);
+
+    if (!out.is_open()) {
+        std::cerr << "Ошибка открытия файла для записи!" << std::endl;
+        return;
+    }
 
     const uint16_t list_size = this->machine_list.size();
     out.write((char*)&list_size, sizeof(list_size));
@@ -39,7 +49,12 @@ void Machine_list::save() const
 
 void Machine_list::load()
 {
-    std::ifstream in("C:\\QT\\projects\\example\\machines.bin", std::ios::binary | std::ios::in);
+    std::ifstream in(file_path, std::ios::binary | std::ios::in);
+
+    if (!in.is_open()) {
+        std::cerr << "Ошибка открытия файла для чтения!" << std::endl;
+        return;
+    }
 
     uint16_t list_size;
     in.read((char*)&list_size, sizeof(list_size));

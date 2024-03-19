@@ -4,6 +4,8 @@
 #include "changerequest.h"
 #include "createrequest.h"
 #include "idrequest.h"
+#include <QGuiApplication>
+#include <QScreen>
 
 Request::Request(QWidget *parent) :
     QDialog(parent),
@@ -11,6 +13,12 @@ Request::Request(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowTitle("Запросы");
+
+    QScreen *primaryScreen = QGuiApplication::primaryScreen();
+    QRect screenGeometry = primaryScreen->geometry();
+    int x = (screenGeometry.width() - this->width()) / 2;
+    int y = (screenGeometry.height() - this->height()) / 2;
+    this->move(x, y);
 }
 
 Request::~Request()
@@ -20,8 +28,8 @@ Request::~Request()
 
 void Request::on_pushButton_clicked()
 {
-    this->close();      // Закрываем окно
-    emit firstWindow(); // И вызываем сигнал на открытие главного окна
+    this->close();
+    emit firstWindow();
 }
 
 void Request::on_pushButton_2_clicked()
@@ -38,7 +46,6 @@ void Request::on_pushButton_5_clicked()
     window.exec();
 }
 
-
 void Request::on_pushButton_3_clicked()
 {
     CreateRequest window;
@@ -46,11 +53,9 @@ void Request::on_pushButton_3_clicked()
     window.exec();
 }
 
-
 void Request::on_pushButton_4_clicked()
 {
     ChangeRequest window;
     window.setModal(true);
     window.exec();
 }
-

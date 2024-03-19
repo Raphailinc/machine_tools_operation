@@ -17,79 +17,45 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>-130</x>
-      <y>-70</y>
-      <width>271</width>
-      <height>261</height>
+      <x>50</x>
+      <y>70</y>
+      <width>200</width>
+      <height>200</height>
      </rect>
     </property>
     <property name="text">
      <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>../../../Users/Papech/Desktop/Фотошоп/gear_003.ico</pixmap>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>480</x>
-      <y>-110</y>
-      <width>201</width>
-      <height>281</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>../../../Users/Papech/Desktop/Фотошоп/gear_003.ico</pixmap>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>-90</x>
-      <y>340</y>
-      <width>281</width>
-      <height>291</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>../../../Users/Papech/Desktop/Фотошоп/gear_003.ico</pixmap>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>460</x>
-      <y>360</y>
-      <width>261</width>
-      <height>261</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>../../../Users/Papech/Desktop/Фотошоп/gear_003.ico</pixmap>
     </property>
    </widget>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>100</y>
-      <width>191</width>
-      <height>301</height>
+      <x>200</x>
+      <y>150</y>
+      <width>200</width>
+      <height>150</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <widget class="QPushButton" name="pushButton">
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+    background-color: rgb(255, 153, 51);
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+}
+
+QPushButton:hover {
+    background-color: rgb(255, 204, 102);
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+}</string>
+       </property>
        <property name="text">
         <string>Запросы</string>
        </property>
@@ -97,6 +63,23 @@
      </item>
      <item>
       <widget class="QPushButton" name="pushButton_2">
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+    background-color: rgb(75, 172, 198);
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+}
+
+QPushButton:hover {
+    background-color: rgb(102, 194, 228);
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+}</string>
+       </property>
        <property name="text">
         <string>Станки</string>
        </property>
@@ -104,6 +87,23 @@
      </item>
      <item>
       <widget class="QPushButton" name="pushButton_3">
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+    background-color: rgb(240, 84, 84);
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+}
+
+QPushButton:hover {
+    background-color: rgb(255, 102, 102);
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+}</string>
+       </property>
        <property name="text">
         <string>Выход</string>
        </property>
@@ -113,7 +113,6 @@
    </widget>
   </widget>
  </widget>
- <resources/>
  <connections>
   <connection>
    <sender>pushButton_3</sender>

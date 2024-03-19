@@ -16,13 +16,11 @@ public:
     ~Menu();
 
 private slots:
-    // —лоты от кнопок главного окна
     void on_pushButton_clicked();
     void on_pushButton_2_clicked();
 
 private:
     Ui::Menu *ui;
-    // второе и третье окна
     Request *sWindow;
     Machine *thirdWindow;
 };

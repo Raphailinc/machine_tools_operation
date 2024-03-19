@@ -5,10 +5,10 @@
 
 enum class Machine_state : uint8_t
 {
-    WORKING = 0,	// Рабочий
-    REPAIR,			// В ремонте
-    BROKEN,			// Сломан
-    UNDEFINED,		// Неизвестно
+    WORKING = 0,
+    REPAIR,
+    BROKEN,
+    UNDEFINED,
 };
 
 #endif // MACHINE_STATE_H

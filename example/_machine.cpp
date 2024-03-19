@@ -1,10 +1,3 @@
-/*Реализовать программу, которая формирует заявку на ремонт станка, эта заявка содержит
-полную информацию: что сломалось, что случилось, какие запчасти, кто составил заявку,
-телефон, фио, мыло и заявка улетает; нужно посмотреть все текущие заявки в виде таблицы,
-возможность смотреть на какие станки заявки, какие станки в рабочем состоянии (в виде
-списка); если станок прилетел в ремонт, то из списка ремонта удаляется;
-возможность редактирование заявки, требуется вывод списка рабочих станков,
-чтобы можно было также добавить новый рабочий станок*/
 #include "_machine.h"
 #include "allmachines.h"
 #include "machine_list.h"
@@ -35,22 +28,22 @@ _Machine::~_Machine()
 {
 }
 
-    Machine_state state;	// РЎРѕСЃС‚РѕСЏРЅРёРµ СЃС‚Р°РЅРєР°
-    bool		 active;	// Р Р°Р±РѕС‚Р°РµС‚ Р»Рё СЃРµР№С‡Р°СЃ
+    Machine_state state;
+    bool		 active;
     uint16_t	 id;
-    uint16_t	 belt_wear;		// РЎС‚РµРїРµРЅСЊ РёР·РЅРѕС€РµРЅРЅРѕСЃС‚Рё СЂРµРјРЅСЏ
-    uint16_t	 engine_wear;	// РЎС‚РµРїРµРЅСЊ РёР·РЅРѕС€РµРЅРЅРѕСЃС‚Рё РґРІРёРіР°С‚РµР»СЏ
-    uint16_t	 speed_engine;	// РљРѕР»-РІРѕ РѕР±РѕСЂРѕС‚РѕРІ
+    uint16_t	 belt_wear;
+    uint16_t	 engine_wear;
+    uint16_t	 speed_engine;
 
 void _Machine::print(QStandardItemModel *model) const
 {
-    std::stringstream state;
+    std::stringstream stateStream;
     QStandardItem* item = 0;
 
     item = new QStandardItem(QString::number(this->id));
     model->setItem(line,0,item);
-    state << this->state;
-    item = new QStandardItem(QString::fromStdString(state.str()));
+    stateStream << static_cast<int>(this->state);
+    item = new QStandardItem(QString::fromStdString(stateStream.str()));
     model->setItem(line,1,item);
     item = new QStandardItem(QString::number(this->active));
     model->setItem(line,2,item);
@@ -68,7 +61,7 @@ QString _Machine::print() const
     std::stringstream storage;
     storage << "id: " << this->id << '\n'\
             << "РЎРѕСЃС‚РѕСЏРЅРёРµ: " << this->state << '\n'\
-            << "Р Р°Р±РѕС‚Р°РµС‚ Р»Рё СЃРµР№С‡Р°СЃ: " << this->active << '\n'\
+            << "РђРєС‚РёРІРµРЅ Р»Рё: " << this->active << '\n'\
             << "РЎРѕСЃС‚РѕСЏРЅРёРµ СЂРµРјРЅСЏ: " << this->belt_wear << '\n'\
             << "РЎРѕСЃС‚РѕСЏРЅРёРµ РґРІРёРіР°С‚РµР»СЏ: " << this->engine_wear << '\n'\
             << "РљРѕР»РёС‡РµСЃС‚РІРѕ РѕР±РѕСЂРѕС‚РѕРІ: " << this->speed_engine << std::endl;

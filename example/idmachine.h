@@ -25,8 +25,6 @@ private slots:
 private:
     Ui::IdMachine *ui;
 
-    // QStandardItemModel предоставляет классический
-    // поэлементный подход к работе с моделью.
     QStandardItemModel *model = new QStandardItemModel();
 };
 

@@ -4,6 +4,7 @@
 #include <QStandardItemModel>
 #include <QString>
 #include "functions.h"
+#include "machine_state.h"
 
 class _Machine
 {
@@ -39,12 +40,12 @@ public:
     }
 
 protected:
-    bool		 active;	// Работает ли сейчас
+    bool		 active;
     uint16_t	 id;
-    uint16_t	 belt_wear;		// Степень изношенности ремня
-    uint16_t	 engine_wear;	// Степень изношенности двигателя
-    uint16_t	 speed_engine;	// Кол-во оборотов
-    Machine_state state;	// Состояние станка
+    uint16_t	 belt_wear;
+    uint16_t	 engine_wear;
+    uint16_t	 speed_engine;
+    Machine_state state;
 
 private:
     static int line;

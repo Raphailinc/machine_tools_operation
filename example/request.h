@@ -16,10 +16,9 @@ public:
     ~Request();
 
 signals:
-    void firstWindow();  // Сигнал для первого окна на открытие
+    void firstWindow();
 
 private slots:
-    // Слот-обработчик нажатия кнопки
     void on_pushButton_clicked();
 
     void on_pushButton_2_clicked();

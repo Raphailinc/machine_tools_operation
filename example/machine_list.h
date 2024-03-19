@@ -5,7 +5,6 @@
 #include <QStandardItemModel>
 #include "_machine.h"
 
-/*machines.bin - Название файла, где хранятся данные о машинах*/
 class Machine_list : public QWidget
 {
     Q_OBJECT
@@ -18,13 +17,8 @@ public:
     ~Machine_list();
 
     void print(QStandardItemModel *model) const;
-    /*
-        Формат хранения данных: бинарный
-        Первые 2 байта - общее количество машин, далее хранится структура
-        данных каждой машины
-    */
-    void save() const;  // Сохраняет в файл machines.bin данные о машинах
-    void load();		// Загружает из файла machines.bin данные о машинах
+    void save() const;
+    void load();
 };
 
 #endif // MACHINE_LIST_H

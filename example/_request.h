@@ -5,7 +5,7 @@
 #include <QString>
 #include "functions.h"
 
-class _Request // Заявка
+class _Request
 {
 public:
     uint16_t	id;

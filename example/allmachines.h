@@ -22,8 +22,6 @@ public:
 private:
     Ui::AllMachines *ui;
 
-    // QStandardItemModel предоставляет классический
-    // поэлементный подход к работе с моделью.
     QStandardItemModel *model = new QStandardItemModel();
 };
 

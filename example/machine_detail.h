@@ -5,8 +5,8 @@
 
 enum class Machine_detail : uint8_t
 {
-    WEAR	= 0,	// Ремень
-    ENGINE	= 1,	// Двигатель
+    WEAR	= 0,
+    ENGINE	= 1,
 };
 
 #endif // MACHINE_DETAIL_H
